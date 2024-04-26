@@ -1,0 +1,21 @@
+import numpy as np
+
+
+data = np.genfromtxt("posities_1_Team_07.txt", delimiter=",", skip_header=1)
+
+
+tijd = data[:, 0]
+positie_x = data[:, 1]
+positie_y = data[:, 2]
+positie_z = data[:, 3]
+
+
+versnelling_x = np.gradient(positie_x, tijd)
+versnelling_y = np.gradient(positie_y, tijd)
+versnelling_z = np.gradient(positie_z, tijd)
+positiebestanden_map = "posities_1_Team_07.txt"
+tijd, positie_x, positie_y, positie_z = np.loadtxt("posities_1_Team_07.txt", delimiter=",", unpack=True)
+
+versnelling_x = np.gradient(positie_x, tijd)
+versnelling_y = np.gradient(positie_y, tijd)
+versnelling_z = np.gradient(positie_z, tijd)
