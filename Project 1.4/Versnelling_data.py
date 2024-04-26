@@ -6,12 +6,13 @@ Created on Fri Apr 26 09:33:21 2024
 """
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
-# Define the file path
-file_path = r'\Data\posities\posities_1_Team_07.txt'
+data = pd.read_csv('Data\posities\posities_1_Team_07.txt', delim_whitespace=True)
 
-# Read the txt file as csv
-data = pd.read_csv(file_path, sep="\t")  # assuming the data is tab-separated
 
-# Now 'data' is a pandas DataFrame and you can perform operations on it.
-print(data)
+data["v (m/s)"] = (data["x"] - data["x"].shift(1)) / (data["t"] - data["t"].shift(1))
+data["a (m/s^2)"] = (data["v (m/s)"] - data["v (m/s)"].shift(1)) / (data["t"] - data["t"].shift(1))
+
+
+plt.plot(data["t"], data["a (m/s^2)"])
