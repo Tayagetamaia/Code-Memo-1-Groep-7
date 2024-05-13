@@ -9,7 +9,7 @@ m = 1.9372e-6  # Mass of the object in kg
 y = 0.045101  # Damping coefficient in kg/s
 
 # Read in the position data from a text file, assuming whitespace delimiter
-data = pd.read_csv('posities_1_Team_07.txt', sep='\s+')    
+data = pd.read_csv('Posities\posities_1_Team_07.txt', sep='\s+')    
 
 # Calculate velocity by finite difference of position 'x' with respect to time 't'
 # Shift(1) moves the data down one row for subtraction, division by time interval gives velocity
@@ -46,4 +46,5 @@ plt.title("Acceleration and Position vs Time")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
 plt.legend()
+plt.savefig('Acceleration_vs_time.png', dpi=600)
 plt.show()
