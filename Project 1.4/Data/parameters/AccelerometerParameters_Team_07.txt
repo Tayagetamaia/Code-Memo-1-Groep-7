@@ -1,3 +1,0 @@
-veerconstante (k): 42 N/m
-massa (m): 1.9372 mg
-b: 0.045101 kg/s
